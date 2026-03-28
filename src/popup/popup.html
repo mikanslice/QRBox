@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="popup.css" />
+  </head>
+  <body>
+    <h2 class="title">QR Box</h2>
+    <button id="scan">スキャンする</button>
+    <p><span class="label">読み取り時刻: </span><span id="time">-</span></p>
+    <p><span class="label">内容: </span><span id="content">-</span></p>
+    <button id="copy">コピーする</button>
+    <button id="reset">リセットする</button>
+    <input type="checkbox" id="auto" />
+    <label for="auto">自動コピー</label>
+    <p id="msg"></p>
+    <script src="popup.js" defer></script>
+  </body>
+</html>

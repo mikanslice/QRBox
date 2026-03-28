@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url('chrome-extension://__MSG_@@extension_id__/src/content/fonts/MaterialSymbols-Outlined.woff2') format('woff2');
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-feature-settings: 'liga';
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+.qrbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 999999997;
+    pointer-events: auto;
+    cursor: crosshair;
+}
+
+.qrbox-selection {
+    position: fixed;
+    border: 2px dashed #ff9100;
+    background: rgba(255, 145, 0, 0.1);
+    z-index: 999999998;
+    display: none;
+    pointer-events: none;
+}
+
+/* ベース */
+.qrbox-toast {
+    position: fixed;
+    min-height: 44px;
+    padding: 0 18px;
+    background: #fff;
+    color: #333;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 999999999;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    opacity: 0;
+    transition: opacity 260ms ease, transform 260ms ease;
+    pointer-events: none;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* 上部ライン（アクセント） */
+.qrbox-toast::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+/* 状態別カラー */
+.qrbox-toast.qrbox-info::before {
+    background: orange;
+}
+
+.qrbox-toast.qrbox-success::before {
+    background: #2ecc71;
+    /* 緑 */
+}
+
+.qrbox-toast.qrbox-error::before {
+    background: #e74c3c;
+    /* 赤 */
+}
+
+/* 表示時 */
+.qrbox-toast.qrbox-show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}

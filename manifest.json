@@ -1,0 +1,35 @@
+{
+  "name": "QR Box",
+  "description": "Chrome Extension for reading qr code",
+  "version": "0.1",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "QR Box",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": "assets/icon-48.png"
+  },
+  "icons": {
+    "16": "assets/icon-16.png",
+    "48": "assets/icon-48.png",
+    "128": "assets/icon-128.png"
+  },
+  "permissions": ["contextMenus", "activeTab", "tabs", "scripting", "storage"],
+  "background": {
+    "service_worker": "src/background/background.js",
+    "type": "module"
+  },
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/lib/jsQR.js", "src/content/selection.js"],
+      "css": ["src/content/overlay.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/content/fonts/*"],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+/* 全体レイアウト */
+body {
+    width: 240px;
+    padding: 16px;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #fff;
+    color: #333;
+}
+
+/* タイトル */
+.title {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: #ff7a00;
+    text-align: center;
+}
+
+/* ボタン共通 */
+button {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+/* メインボタン（スキャン） */
+#scan {
+    background: #ff7a00;
+    color: #fff;
+}
+
+#scan:hover {
+    background: #e56d00;
+}
+
+#scan:active {
+    transform: scale(0.97);
+}
+
+/* サブボタン（コピー・リセット） */
+#copy,
+#reset {
+    background: #f2f2f2;
+    color: #333;
+}
+
+#copy:hover,
+#reset:hover {
+    background: #e6e6e6;
+}
+
+#copy:active,
+#reset:active {
+    transform: scale(0.97);
+}
+
+/* ラベルとテキスト */
+.label {
+    font-weight: 600;
+    color: #555;
+}
+
+p {
+    margin: 6px 0;
+    font-size: 13px;
+}
+
+/* チェックボックスを非表示にしてカスタムUIに置き換える */
+#auto {
+    display: none;
+}
+
+/* トグル全体の枠 */
+label[for="auto"] {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 14px;
+}
+
+/* トグル本体 */
+label[for="auto"]::before {
+    content: "";
+    width: 34px;
+    height: 18px;
+    background: #ccc;
+    border-radius: 20px;
+    position: relative;
+    transition: background 0.25s;
+}
+
+/* トグルの丸 */
+label[for="auto"]::after {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    margin-left: 2px;
+    transition: transform 0.25s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* ON の状態（オレンジ） */
+#auto:checked+label[for="auto"]::before {
+    background: #ff7a00;
+}
+
+#auto:checked+label[for="auto"]::after {
+    transform: translateX(16px);
+}
+
+/* メッセージ表示 */
+#msg {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #ff7a00;
+    font-weight: 600;
+    min-height: 18px;
+}
+
+/* ちょっとしたカード感 */
+body {
+    border-radius: 10px;
+}
